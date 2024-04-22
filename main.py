@@ -31,4 +31,4 @@ def main():
     print("A velocidade no polo p, por poisson, é:", resultado_formatado_vp)
     print("A velocidade no polo q, por poisson, é:", resultado_formatado_vq)
 
-    return
+    
