@@ -23,12 +23,10 @@ def main():
 
     # Encontra os valores das velocidades no polo q e no polo p por poisson.
     resultado_vp = pme.poisson_vp(2, "-i", 6, "k", 12, "-k")
-    resultado_vq = pme.poisson_vq(2, "-i", 6, "k", 12, "-k")
+    resultado_vq = pme.poisson_vq(2, "-i", 6, "k", 13, "-k")
 
-    resultado_formatado_vp = pme.formata_poisson(resultado_vp)
-    resultado_formatado_vq = pme.formata_poisson(resultado_vq)
+    resultado_formatado = pme.formata_poisson(resultado_vp, resultado_vq)
 
-    print("A velocidade no polo p, por poisson, é:", resultado_formatado_vp)
-    print("A velocidade no polo q, por poisson, é:", resultado_formatado_vq)
+    print("Resolvendo problemas de cinemática por Poisson.\n", resultado_formatado)
 
 main()
