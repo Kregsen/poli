@@ -159,10 +159,10 @@ class pme:
 
         return [num, dir]
 
-    def formata_poisson(poi_res_vp, poi_res_vq):
-        # Formata o resultado obtido pela função poisson_vp(omega, omega_vrs, dist, dist_vrs, vq, vq_vrs).
+    def formata_poisson_vp_e_vq(poi_res_vp, poi_res_vq):
+        # Formata o resultado obtido pela função poisson_vp(omega, omega_vrs, dist, dist_vrs, vq, vq_vrs), e também
+        # o da função poisson_vq(omega, omega_vrs, dist, dist_vrs, vp, vp_vrs).
         
-        #if poi_res_vp:
         if pme.teste_numero(poi_res_vp[0]) and pme.teste_numero(poi_res_vq[0]):
             
             poi_res_vp[0] = str(poi_res_vp[0])
@@ -171,6 +171,7 @@ class pme:
             poi_f1 = "".join(poi_res_vp)
             poi_f2 = "".join(poi_res_vq)
             
+            # Os () permitem escrever em mais linhas. Além disso, cada linha corresponde a uma das velocidades.
             return (f"""\nA velocidade nos dois polos é:
             - Poisson a partir de V(Q) e de omega: V(P) = {poi_f1}
             
@@ -185,14 +186,3 @@ class pme:
             - Poisson a partir de V(Q) e de omega: V(P) = {poi_f3[0]}{poi_f3[2]} + {poi_f3[1]}{poi_f3[3]}
             
             - Poisson a partir de V(P) e de omega: V(Q) = {poi_f4[0]}{poi_f4[2]} - {poi_f4[1]}{poi_f4[3]}\n""")
-    
-        # elif poi_res_vq:
-        #     if pme.teste_numero(poi_res_vq[0]):
-        #         poi_res_vq[0] = str(poi_res_vq[0])
-        #         poi_f1 = "".join(poi_res_vq)
-        #         return f"\nA velocidade por Poisson é: V(Q) = {poi_f1}\n" 
-            
-        #     elif not pme.teste_numero(poi_res_vq[0]):
-        #         poi_f2 = poi_res_vq[0] + poi_res_vq[1]
-        #         return f"\nA velocidade por Poisson é: V(Q) = {poi_f2[0]}{poi_f2[2]} - {poi_f2[1]}{poi_f2[3]}\n" 
-        

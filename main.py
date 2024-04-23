@@ -25,7 +25,7 @@ def main():
     resultado_vp = pme.poisson_vp(2, "-i", 6, "k", 12, "-k")
     resultado_vq = pme.poisson_vq(2, "-i", 6, "k", 13, "-k")
 
-    resultado_formatado = pme.formata_poisson(resultado_vp, resultado_vq)
+    resultado_formatado = pme.formata_poisson_vp_e_vq(resultado_vp, resultado_vq)
 
     print("Resolvendo problemas de cinemática por Poisson.\n", resultado_formatado)
 
