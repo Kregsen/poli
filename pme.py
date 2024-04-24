@@ -12,6 +12,8 @@ class pme:
     def __init__(self):
         return
 
+#----------------------------------------------------------------------------------------------------------------------
+
     def teste_versor(versor):
         # Testa se a entrada é um versor válido. Não aceita letras em maiúsculo.
 
@@ -21,7 +23,9 @@ class pme:
         # Testa se o valor de entrada é um numero do tipo float ou int.
 
         return (type(numero) == int) or (type(numero) == float)
-    
+
+#----------------------------------------------------------------------------------------------------------------------
+
     def prod_versor(mult):
         # Obtém os resultados das multiplicações entre dois versores.
 
@@ -110,6 +114,8 @@ class pme:
         if comp_str == "zero": return [0, "zero"]
         else: return [comp_int, comp_str]
 
+#----------------------------------------------------------------------------------------------------------------------
+
     def poisson_vp(omega, omega_vrs, dist, dist_vrs, vq, vq_vrs):
         # Resolve poisson para a velocidade do polo "normal" (vp):
             # vp = vq + pme.comp_prod_vetorial(omega, omega_vrs, dist, dist_vrs)
@@ -158,6 +164,8 @@ class pme:
         num = vp - int(prod_vetorial[0]) if (mult_versores[1] == True) else ([vq, prod_vetorial[0]])
 
         return [num, dir]
+
+#----------------------------------------------------------------------------------------------------------------------
 
     def formata_poisson_vp_e_vq(poi_res_vp, poi_res_vq):
         # Formata o resultado obtido pela função poisson_vp(omega, omega_vrs, dist, dist_vrs, vq, vq_vrs), e também

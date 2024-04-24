@@ -20,6 +20,8 @@ def main():
     # print("2: Poisson em V(Q).")
     # print("3: Poisson em omega.")
     # print("\n")
+    
+#----------------------------------------------------------------------------------------------------------------------
 
     # Encontra os valores das velocidades no polo q e no polo p por poisson.
     resultado_vp = pme.poisson_vp(2, "-i", 6, "k", 12, "-k")
