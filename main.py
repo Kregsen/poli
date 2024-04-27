@@ -1,34 +1,25 @@
 def main():
     from pme import pme
-
-    # poisson_para = input("Digite 1 para encontrar V(P), 2 para encontrar V(Q) ou 3 para encontrar omega: ")
-
-    # dist_nr = int(input("Digite a intensidade do vetores distância: "))
-    # dist_vers = int(input("Digite o versor do vetor distância: "))
-
-    # vq_nr = int(input("Digite a intensidade do vetor V(Q) (dado no enunciado do exercício): "))
-    # vq_vers = int(input("Digite o versor do vetor V(Q) (dado no enunciado do exercício): "))
-
-    # vp_nr = int(input("Digite a intensidade do vetor V(P) (dado no enunciado do exercício): "))
-    # vp_vers = int(input("Digite o versor do vetor V(P) (dado no enunciado do exercício): "))
-
-    # omega_nr = int(input("Digite a intensidade dos vetor omega (dado no enunciado do exercício): "))
-    # omega_vers = int(input("Digite o versor do vetor omega (dado no enunciado do exercício): "))
-
-    # print("\nEscolha o programa que vai rodar: \n")
-    # print("1: Poisson em V(P).")
-    # print("2: Poisson em V(Q).")
-    # print("3: Poisson em omega.")
-    # print("\n")
     
-#----------------------------------------------------------------------------------------------------------------------
+    # Cria os versores correspondentes aos vetores.
+    versor_i_omega = int(input("Digite a intensidade (número) do vetor omega na direção i: "))
+    versor_j_omega = int(input("Digite a intensidade (número) do vetor omega na direção j: "))
+    versor_k_omega = int(input("Digite a intensidade (número) do vetor omega na direção k: "))
+    
+    versor_i_dist = int(input("\nDigite a intensidade (número) do vetor dist na direção i: "))
+    versor_j_dist = int(input("Digite a intensidade (número) do vetor dist na direção j: "))
+    versor_k_dist = int(input("Digite a intensidade (número) do vetor dist na direção k: "))    
+    
+    versor_i_vq = int(input("\nDigite a intensidade (número) do vetor vq na direção i: "))
+    versor_j_vq = int(input("Digite a intensidade (número) do vetor vq na direção j: "))
+    versor_k_vq = int(input("Digite a intensidade (número) do vetor vq na direção k: "))
+    #-------------------------------------------------------------------------------------------------------------------
 
-    # Encontra os valores das velocidades no polo q e no polo p por poisson.
-    resultado_vp = pme.poisson_vp(2, "-i", 6, "k", 12, "-k")
-    resultado_vq = pme.poisson_vq(2, "-i", 6, "k", 13, "-k")
+    vetor_omega = pme.cria_vetor(versor_i_omega, versor_j_omega, versor_k_omega)
+    dist = pme.cria_vetor(versor_i_dist, versor_j_dist, versor_k_dist)
+    # vetor_vp = pme.cria_vetor(versor_i_vp, versor_j_vp, versor_k_vp)
+    vetor_vq = pme.cria_vetor(versor_i_vq, versor_j_vq, versor_k_vq)
+    #-------------------------------------------------------------------------------------------------------------------
 
-    resultado_formatado = pme.formata_poisson_vp_e_vq(resultado_vp, resultado_vq)
-
-    print("Resolvendo problemas de cinemática por Poisson.\n", resultado_formatado)
-
+    return pme.campo_velocidades_vp(vetor_omega, dist, vetor_vq)
 main()
